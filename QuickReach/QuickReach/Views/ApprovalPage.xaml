@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:swipecards="clr-namespace:SwipeCards.Controls;assembly=SwipeCards.Controls"
+             mc:Ignorable="d"
+             x:Class="QuickReach.Views.ApprovalPage"
+            Title="QuickReach">
+    <ContentPage.Content>
+        <StackLayout>
+            <!-- Card Stack View -->
+            <Frame BackgroundColor="White" HasShadow="True" CornerRadius="20"  Margin="20" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                <StackLayout HorizontalOptions="FillAndExpand">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Start" >
+                            <BoxView HeightRequest="5" WidthRequest="5" BackgroundColor="Black" CornerRadius="5" VerticalOptions="Center"/>
+                            <Label Text="REIMBURSEMENT" FontAttributes="Bold" FontSize="15"/>
+                        </StackLayout>
+                        <Label Text ="mm/dd/yyyy"  TextColor="{Binding Color}" HorizontalOptions="EndAndExpand" VerticalOptions="Center"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="P3,500." TextColor="{Binding Color}" FontSize="20"/>
+                            <Label Text="00" TextColor="{Binding Color}" FontSize="15"  VerticalOptions="End"/>
+                            <Label Text="Amount" FontSize="10" VerticalOptions="End"/>
+                        </StackLayout>
+                        <Label Text="Project" FontSize="10"/>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Rivington" FontSize="15"/>
+                            <Label Text="Transportation fare" FontSize="10" VerticalOptions="End"/>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout BackgroundColor="{Binding Color}" HorizontalOptions="FillAndExpand">
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="user1.png" HeightRequest="30" WidthRequest="30"/>
+                            <StackLayout Orientation="Vertical" VerticalOptions="Center">
+                                <Label Text="Madge Webb" FontSize="15"/>
+                                <Label Text="JOB POSITION" FontSize="10"/>
+                            </StackLayout>
+                            <AbsoluteLayout HeightRequest="20" HorizontalOptions="EndAndExpand" VerticalOptions="Center" Padding="3">
+                                <BoxView x:Name="boxInital"
+                                             AbsoluteLayout.LayoutBounds="1, 1, 1, 1"
+                                             AbsoluteLayout.LayoutFlags="All"
+                                             Color="Green"
+                                             CornerRadius="15"/>
+                                <Label Text="Department"
+                                           TextColor="White"
+                                           FontSize="10"
+                                           FontAttributes="Bold"
+                                           VerticalOptions="Center"
+                                           HorizontalOptions="Center"
+                                           AbsoluteLayout.LayoutBounds="1, 1, 1, 1"
+                                           AbsoluteLayout.LayoutFlags="All"/>
+                            </AbsoluteLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+
+
+
+            <swipecards:CardStackView x:Name="CardStackView" BackgroundColor="Green" Swiped="CardStackView_Swiped" ItemsSource="{Binding Cards}">
+                <swipecards:CardStackView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding}" VerticalOptions="Center" HorizontalOptions="Center" />
+                    </DataTemplate>
+                </swipecards:CardStackView.ItemTemplate>
+            </swipecards:CardStackView>
+            <Button Text="Restart" Clicked="RestartButton_Clicked" />
+        </StackLayout>
+        <!-- Restart Button -->
+
+
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="QuickReach.MainPage">
+    <MasterDetailPage.ToolbarItems>
+        <ToolbarItem Name="TlbrSearch" Order="Primary" Icon="search.png" Text="Search" Priority="0"/>
+        <ToolbarItem Name="TlbrNotifications" Order="Primary" Icon="notification.png" Text="Notifications" Priority="1"/>
+    </MasterDetailPage.ToolbarItems>
+
+    <MasterDetailPage.Master >
+        <ContentPage Title="Menu">
+            <StackLayout Orientation="Vertical"  BackgroundColor="#2e3a4d">
+                <StackLayout BackgroundColor="#2e3a4d">
+                    <Image Source="https://tinyurl.com/y63yz4eb" Aspect="AspectFit"/>
+                </StackLayout>
+                <ListView x:Name="navigationDrawerList"
+                          RowHeight="55"
+                          VerticalOptions="Center"
+                          SeparatorVisibility="None"
+                          BackgroundColor="#2e3a4d"
+                          ItemSelected="OnMenuItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout VerticalOptions="FillAndExpand"
+                                         Orientation="Horizontal"
+                                         Padding="20,10,0,10"
+                                         Spacing="20">
+                                    <Image Source="{Binding Icon}"
+                                       WidthRequest="30"
+                                       HeightRequest="30"
+                                       VerticalOptions="Start"/>
+                                    <Label Text="{Binding Title}"
+                                       FontSize="20"
+                                       VerticalOptions="End"
+                                       TextColor="White"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ContentPage>
+    </MasterDetailPage.Master>
+    <MasterDetailPage.Detail>
+        <NavigationPage>
+
+        </NavigationPage>
+    </MasterDetailPage.Detail>
+</MasterDetailPage>
+
